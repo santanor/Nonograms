@@ -1,0 +1,12 @@
+6x5
+row:5
+row:1 3
+row:3
+row:1 1
+row:1
+row:0
+col:3
+col:1 1
+col:5
+col:2
+col:2 1
