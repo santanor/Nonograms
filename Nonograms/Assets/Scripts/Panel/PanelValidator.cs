@@ -27,18 +27,23 @@ public class PanelValidator : MonoBehaviour {
 	/// <param name="posY">Position y.</param>
 	void onTilePressed(Tile tile,int posX, int posY)
 	{
-		panelState [posX, posY] = true;
-		if (validatePanel ()) {
-			this.isValid = true;
-			if (onPanelValidated != null)
-				onPanelValidated (true);
+		if(tile.isPressed)
+		{
+			panelState [posX, posY] = true;
+			if (validatePanel ()) {
+				this.isValid = true;
+				if (onPanelValidated != null)
+					onPanelValidated (true);
+			}
+			else
+			{
+				this.isValid = false;
+				if(onPanelValidated != null)
+					onPanelValidated(false);
+			}
 		}
 		else
-		{
-			this.isValid = false;
-			if(onPanelValidated != null)
-				onPanelValidated(false);
-		}
+			panelState [posX, posY] = false;
 	}
 
 	/// <summary>

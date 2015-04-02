@@ -13,7 +13,7 @@ public class Tile : MonoBehaviour
 
 	public void ProcessInput()
 	{
-		this.isPressed = true;
+		this.isPressed = !this.isPressed;
 		if (onTilePressed != null)
 			onTilePressed (this, this.positionX, this.positionY);
 	}

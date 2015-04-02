@@ -13,7 +13,9 @@ public class LevelLoader : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		LoadLevel (1);
+		levels = levels.OrderBy(text => int.Parse(text.name.Replace("Level",""))).ToArray();
+		int level = int.Parse(PlayerPrefs.GetString("LevelToLoad", "Level1"))-1;
+		LoadLevel(level);
 		FindObjectOfType<PanelValidator>().onPanelValidated += OnPanelValidated;
 	}
 

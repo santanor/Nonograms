@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class ColorChanger : MonoBehaviour {
 
-	public Color colorToChange;
+	public Color colorPressed;
+	public Color colorUnPressed;
 	public Color colorPanelValidated;
 
 	void Start()
@@ -23,8 +24,16 @@ public class ColorChanger : MonoBehaviour {
 	{
 		if(!FindObjectOfType<PanelValidator>().isValid)
 		{
-			Image image = this.GetComponent<Image>();
-			image.color = colorToChange;
+			if(tile.isPressed)
+			{
+				Image image = this.GetComponent<Image>();
+				image.color = colorPressed;
+			}
+			else
+			{
+				Image image = this.GetComponent<Image>();
+				image.color = colorUnPressed;
+			}
 		}
 	}
 
